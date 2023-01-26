@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: "wesleywillians/hello-go:v9.6"
+          image: "adaoex/hello-go:v3"
 
           resources:
             requests: 
@@ -51,28 +51,28 @@ spec:
             successThreshold: 1
             # initialDelaySeconds: 15
 
-          envFrom:
-            - configMapRef:
-                name: goserver-env
-            - secretRef:
-                name: goserver-secret
+          # envFrom:
+          #   - configMapRef:
+          #       name: goserver-env
+          #   - secretRef:
+          #       name: goserver-secret
           
-          volumeMounts:
-            - mountPath: "/go/myfamily"
-              name: config
-              readOnly: true
-            - mountPath: "/go/pvc"
-              name: goserver-volume
+          #volumeMounts:
+          #  - mountPath: "/go/myfamily"
+          #    name: config
+          #    readOnly: true
+          #  - mountPath: "/go/pvc"
+          #    name: goserver-volume
 
-      volumes:
-        - name: goserver-volume
-          persistentVolumeClaim:
-            claimName: goserver-pvc
+      # volumes:
+      #   - name: goserver-volume
+      #     persistentVolumeClaim:
+      #       claimName: goserver-pvc
 
-        - name: config
-          configMap:
-            name: configmap-family
-            items:
-            - key: members
-              path: "family.txt"  
+      #   - name: config
+      #     configMap:
+      #       name: configmap-family
+      #       items:
+      #       - key: members
+      #         path: "family.txt"  
       
