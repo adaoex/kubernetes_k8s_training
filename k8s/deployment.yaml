@@ -57,17 +57,17 @@ spec:
           #   - secretRef:
           #       name: goserver-secret
           
-          #volumeMounts:
+          volumeMounts:
           #  - mountPath: "/go/myfamily"
           #    name: config
           #    readOnly: true
-          #  - mountPath: "/go/pvc"
-          #    name: goserver-volume
+            - mountPath: "/go/pvc"
+              name: goserver-volume
 
-      # volumes:
-      #   - name: goserver-volume
-      #     persistentVolumeClaim:
-      #       claimName: goserver-pvc
+      volumes:
+         - name: goserver-volume
+           persistentVolumeClaim:
+             claimName: goserver-pvc
 
       #   - name: config
       #     configMap:

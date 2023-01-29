@@ -114,5 +114,15 @@ kubectl get replicasets
 kubectl get pods
 ```
 
+# Service Account
+
+```
+kubectl get serviceaccounts
+
+kubectl get api-resources
+
+```
+- default (conta padrão)
+
 
 
